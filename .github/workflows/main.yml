@@ -24,5 +24,4 @@ jobs:
         run: deno run --allow-net=api.notion.com --allow-env https://deno.land/x/automonth@v.0.4/src/main.ts
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          DATABASE_1: ${{ secrets.DATABASE_1 }}
-          DATABASE_2: ${{ secrets.DATABASE_2 }}
+          DATABASE_PAGE: ${{ secrets.DATABASE_PAGE }}
