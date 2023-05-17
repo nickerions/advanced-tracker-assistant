@@ -1,4 +1,4 @@
-# Automated Month
+# Advanced Tracker Assistant
 ### A script for Advanced Finance Tracker (Notion Template) by Notioneo.
 It is suitable for every transaction you have in your Advanced Finance Tracker.
 ### How to install?
