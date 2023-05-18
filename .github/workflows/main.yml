@@ -21,7 +21,7 @@ jobs:
       - name: Verify Deno installation
         run: deno --version 
       - name: Run Deno
-        run: deno run --allow-net=api.notion.com --allow-env https://deno.land/x/automonth@v.0.8.5/src/main.ts
+        run: deno run --allow-net=api.notion.com --allow-env https://deno.land/x/automonth@v.0.8.6/src/main.ts
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           DATABASE_PAGE: ${{ secrets.DATABASE_PAGE }}
