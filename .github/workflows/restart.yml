@@ -4,8 +4,8 @@ on:
   workflow_run:
     workflows: ["Advanced Tracker Assistant"]
     types:
-      - completed_success
-      - completed_failure
+      - completed
+      - failure
 
 jobs:
   restart:
