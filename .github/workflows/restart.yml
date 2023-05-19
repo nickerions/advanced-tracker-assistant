@@ -12,13 +12,5 @@ jobs:
     name: Restart
     runs-on: ubuntu-latest
     steps:
-      - name: Clone repository
-        uses: actions/checkout@v3
-      - uses: denoland/setup-deno@v1
-      - name: Verify Deno installation
-        run: deno --version 
-      - name: Run Deno
-        run: deno run --allow-net=api.notion.com --allow-env https://deno.land/x/automonth@v.1.0/src/main.ts
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          DATABASE_PAGE: ${{ secrets.DATABASE_PAGE }}
+      - name: Restart
+        run: echo "Restarting"
