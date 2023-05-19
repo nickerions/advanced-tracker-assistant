@@ -1,6 +1,7 @@
 name: Restart
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ["Advanced Tracker Assistant"]
     types:
