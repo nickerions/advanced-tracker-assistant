@@ -2,12 +2,8 @@ name: Advanced Tracker Assistant
 
 on:
   schedule:
-    - cron: "0 */5 * * *"
+    - cron: "0 */6 * * *"
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Advanced Tracker Assistant"]
-    types:
-      - completed
 
 jobs:
   deploy:
@@ -29,3 +25,24 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           DATABASE_PAGE: ${{ secrets.DATABASE_PAGE }}
+      - name: Check workflow runs
+        id: check_workflow
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const response = await github.rest.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_file_name: '.github/workflows/main.yml',
+              status: 'in_progress'
+            });
+            console.log(response.data);
+            return response.data.total_count === 0;
+
+      - name: Trigger new workflow
+        if: steps.check_workflow.outputs.result == 'true'
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          event-type: start_workflow
