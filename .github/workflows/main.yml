@@ -19,11 +19,7 @@ jobs:
       - name: Verify Deno installation
         run: deno --version 
       - name: Run Deno
-        uses: nick-fields/retry@v2
-        with:
-          retry_on: error
-          timeout_seconds: 5
-          command: deno run --allow-net=api.notion.com --allow-env https://deno.land/x/automonth@v.1.0/src/main.ts
+        run: deno run --allow-net=api.notion.com --allow-env https://deno.land/x/automonth@v.1.0/src/main.ts
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           DATABASE_PAGE: ${{ secrets.DATABASE_PAGE }}
