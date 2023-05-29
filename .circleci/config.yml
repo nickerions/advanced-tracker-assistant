@@ -17,3 +17,9 @@ jobs:
           environment:
             NOTION_TOKEN: $NOTION_TOKEN
             DATABASE_PAGE: $DATABASE_ID
+
+workflows:
+  version: 2
+  deploy-workflow:
+    jobs:
+      - deploy
