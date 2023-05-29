@@ -25,7 +25,7 @@ jobs:
           command: deno run --allow-net=api.notion.com --allow-env https://deno.land/x/automonth@v.1.0.1/src/main.ts
           environment:
             NOTION_TOKEN: $NOTION_TOKEN
-            DATABASE_PAGE: $DATABASE_ID
+            DATABASE_PAGE: $DATABASE_PAGE
 
 workflows:
   version: 2
